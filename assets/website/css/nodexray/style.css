@@ -8097,6 +8097,6 @@ del {
 }
 
 /*# sourceMappingURL=style.css.map */
-a, button {color: #545454;}
+a, a:hover, button {color: #545454;}
 header .logo h1, header .logo span {font-size: 2.5rem;font-weight: bold;color: #423F8D;}
 .xcblog-blog-list h3 {font-size:1.5rem;}
