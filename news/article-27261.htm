@@ -102,6 +102,7 @@
                                           				  				  				<p>最近的工作中，需要批量处理harbor中的一些镜像，其中关键的一步就是获取harbor中全部镜像的带tag的清单。我在网上找了许久，没有找到可用的。</p> <p>最后我自己写了一个java方法，成功实现了这一需求。</p> <p>本文测试的harbor的版本是V2.3.3。</p> <p>下列代码中，使用了一个叫HttpUtils.sendGet的方法。这是我自己实现的一个HTTP请求工具。其代码参见：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.jb51.net/article/243787.htm"  target="_blank" rel="nofollow">Java原生HttpClient使用示例</a>。</p> <div class="ay1code"> <pre class="brush:java;">public void getImages(String harborHost, String cookieStr) throws Exception {      HttpResponse&lt;String&gt; catalogResp = HttpUtils.sendGet(harborHost + "/v2/_catalog", cookieStr);      List&lt;String&gt; strings = JSONObject.parseObject(catalogResp.body()).getJSONArray("repositories").toJavaList(String.class);      HashMap&lt;String, List&lt;String&gt;&gt; result = new HashMap&lt;&gt;();      for (String image : strings) {          ArrayList&lt;String&gt; tagList = new ArrayList&lt;&gt;();          String[] split = image.split("/");          String repositoryName = split[0];          String imageName = split[1];          String urlForImageInfo = harborHost + "/api/v2.0/projects/" + repositoryName + "/repositories/" + imageName;          HttpResponse&lt;String&gt; infoResp = HttpUtils.sendGet(urlForImageInfo, cookieStr);          Integer artifactCount = JSONObject.parseObject(infoResp.body()).getInteger("artifact_count");          int pageNum = artifactCount / 15;          pageNum = pageNum * 15 &gt;= artifactCount ? pageNum : pageNum + 1;          for (int i = 1; i &lt;= pageNum; i++) {              String urlForTags = urlForImageInfo + "/artifacts?with_tag=true&amp;with_scan_overview=true&amp;with_label=true&amp;page_size=15&amp;page=" + i;              HttpResponse&lt;String&gt; tagsResp = HttpUtils.sendGet(urlForTags, cookieStr);              JSONArray tagArray = JSONObject.parseArray(tagsResp.body());              for (int j = 0; j &lt; tagArray.size(); j++) {                  String tagsStr = tagArray.getJSONObject(j).getString("tags");                  if (!StrUtils.isEmpty(tagsStr)) {                      JSONArray tags = tagArray.getJSONObject(j).getJSONArray("tags");                      for (int k = 0; k &lt; tags.size(); k++) {                          tagList.add(tags.getJSONObject(k).getString("name"));                      }                  }              }          }          result.put(image, tagList);      }      for (String key : result.keySet()) {          for (String t : result.get(key)) {              System.out.println(key + ":" + t);          }      }  }  </pre> </div> <p>此方法需要传入两个参数。第一个是：harborHost为harbor的URL的字符串，比如：https://harbor.wja.cn<br />第二个也是一个字符串，需要手动登录harbor页面，在首页中，按F12，弹出开发工具，然后刷新页面，第一个请求的cookie的值就所需的字符串，如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/d2fe330eec0fb308a2c60c14009bf60c.jpg"></p> <p>测试结果如下：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/069f3e456ede035883784981f2a0b0cb.jpg"></p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-27260.htm">一段解决kafka消息处理异常的经典对话</a></p>
+                                        <p>下一个：<a href="/news/article-27736.htm">宠物粮食哪里批发好卖呢（宠物粮食批发厂家价格）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -111,16 +112,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-24016.htm" title="maven中dependency的属性(依赖)配置">maven中dependency的属性(依赖)配置</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-6-today-winxray-node.htm" title="「12月6日」最高速度22.2M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月6日」最高速度22.2M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-26795.htm" title="Java 超详细讲解ThreadLocal类的使用_java">Java 超详细讲解ThreadLocal类的使用_java</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-3-winxray-node-github.htm" title="「9月3日」最高速度20.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月3日」最高速度20.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-node-share.htm" title="「10月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-18980.htm" title="宠物医院办理诊疗许可证需要什么材料（宠物医院证件办理流程）">宠物医院办理诊疗许可证需要什么材料（宠物医院证件办理流程）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-subscribe-node.htm" title="「10月21日」最高速度19.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月21日」最高速度19.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-19431.htm" title="动物疫苗品牌排行前十 动物疫苗品牌排行前十名">动物疫苗品牌排行前十 动物疫苗品牌排行前十名</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-winxray-node.htm" title="「10月29日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月29日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-node-share.htm" title="「9月30日」最高速度21M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月30日」最高速度21M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-high-speed-nodes.htm" title="「10月20日」最高速度22.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月20日」最高速度22.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share-links.htm" title="「10月30日」最高速度22.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月30日」最高速度22.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-winxray-windows.htm" title="「9月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-today-winxray-node.htm" title="「12月3日」最高速度22.1M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月3日」最高速度22.1M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share.htm" title="「10月28日」最高速度19.2M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月28日」最高速度19.2M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-free-subscribe-node.htm" title="「9月13日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月13日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-winxray-github.htm" title="「9月23日」最高速度20M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月23日」最高速度20M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-node-subscribe.htm" title="「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-6-winxray-github.htm" title="「10月6日」最高速度19.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月6日」最高速度19.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-winxray-github.htm" title="「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -132,7 +133,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">54</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -165,6 +166,15 @@
                         <div class="row">
                             <div class="col-xl-12 ">
                                 <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                                     <p>
                                     Node Xray机场节点官网 版权所有
                                     <br />
