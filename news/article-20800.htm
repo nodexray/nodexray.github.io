@@ -7,7 +7,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>vue中vuex全家桶的使用封装</title>
         <meta name="description" content="1.在项目下新建一个index.js import Vue from "vue"; import Vuex from "vuex";  Vue.use(Vuex); var state = {   /" />
-        <link rel="icon" href="__ADDON__/img/nodexray/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
     <!-- CSS here -->
@@ -99,7 +99,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <p>1.在项目下新建一个index.js</p> <pre><code>import Vue from "vue"; import Vuex from "vuex";  Vue.use(Vuex); var state = {   //要设置的全局访问的state对象   DoralerFormInfo: {}, //当前登录人的名字   active:0,    }; //全局使用 this.$store.getters.xx （xx为getters里的值） 可获取当前最新的存储值 var getters = {   //实时监听state值的变化   DoralerFormInfo() {     return state.DoralerFormInfo;   },   rues(){     return state.active   } }; //全局使用 this.$store.commit(xx,传值)  (xx为mutations里的值,传值) 可传值修改state对应的值 //mutations为同步方法 只可在同步的事件中使用 var mutations = {   set_DoralerFormInfo(state, obj) {     state.DoralerFormInfo = obj;   },   set_Do1(state, active) {     state.active = active;   }, }; // 全局使用 this.$store.dispatch(xx,传值)  xx为actions里的值 //actions为异步方法 var actions = {   change_DoralerFormInfo(context, obj) {     context.commit("set_DoralerFormInfo", obj);   },    change_set_Do1(context, obj) {     context.commit("set_Do1", obj);   }, }; var store = new Vuex.Store({ state, getters, mutations, actions });  export default store;</code></pre> <p>2.在main.js中引用import store from "./store";（注：自己文件存在的绝对路径或相对路径）</p> <p>在main.js中用实例调用Vue.prototype.$store = store;</p> <p>3.在某个页面存值 this.$store.commit("set_Do1",要存的参数名),为同步</p> <p>this.$store.dispatch(set_DoralerFormInfo,要存的参数名)为异步</p> <p>4. 用this.$store.getters.rues取值</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>1.在项目下新建一个index.js</p> <pre><code>import Vue from "vue"; import Vuex from "vuex";  Vue.use(Vuex); var state = {   //要设置的全局访问的state对象   DoralerFormInfo: {}, //当前登录人的名字   active:0,    }; //全局使用 this.$store.getters.xx （xx为getters里的值） 可获取当前最新的存储值 var getters = {   //实时监听state值的变化   DoralerFormInfo() {     return state.DoralerFormInfo;   },   rues(){     return state.active   } }; //全局使用 this.$store.commit(xx,传值)  (xx为mutations里的值,传值) 可传值修改state对应的值 //mutations为同步方法 只可在同步的事件中使用 var mutations = {   set_DoralerFormInfo(state, obj) {     state.DoralerFormInfo = obj;   },   set_Do1(state, active) {     state.active = active;   }, }; // 全局使用 this.$store.dispatch(xx,传值)  xx为actions里的值 //actions为异步方法 var actions = {   change_DoralerFormInfo(context, obj) {     context.commit("set_DoralerFormInfo", obj);   },    change_set_Do1(context, obj) {     context.commit("set_Do1", obj);   }, }; var store = new Vuex.Store({ state, getters, mutations, actions });  export default store;</code></pre> <p>2.在main.js中引用import store from "./store";（注：自己文件存在的绝对路径或相对路径）</p> <p>在main.js中用实例调用Vue.prototype.$store = store;</p> <p>3.在某个页面存值 this.$store.commit("set_Do1",要存的参数名),为同步</p> <p>this.$store.dispatch(set_DoralerFormInfo,要存的参数名)为异步</p> <p>4. 用this.$store.getters.rues取值</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-20345.htm">胡萝卜的做法（胡萝卜的做法大全家常菜视频）</a></p>
                                         <p>下一个：<a href="/news/article-20801.htm">上海24h宠物医院（上海宠物医院24小时急诊上门）</a></p>
@@ -112,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-node-share.htm" title="「8月24日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「8月24日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-2-winxray-node-share.htm" title="「9月2日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月2日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-winxray-windows.htm" title="「11月12日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月12日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-winxray-github.htm" title="「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-node-share-links.htm" title="「8月27日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「8月27日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share.htm" title="「10月28日」最高速度19.2M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月28日」最高速度19.2M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-3-winxray-node-github.htm" title="「9月3日」最高速度20.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月3日」最高速度20.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-winxray-node-github.htm" title="「9月9日」最高速度20.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月9日」最高速度20.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-12-winxray-github.htm" title="「9月12日」最高速度22.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月12日」最高速度22.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-29-winxray-node.htm" title="「8月29日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接">「8月29日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-winxray-github.htm" title="「9月23日」最高速度20M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月23日」最高速度20M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-24944.htm" title="typescript环境搭建及编译运行">typescript环境搭建及编译运行</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="「11月1日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月1日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-winxray-node-share.htm" title="「9月2日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月2日」最高速度18.1M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-winxray-github.htm" title="「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-winxray-github.htm" title="「11月2日」最高速度18.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月2日」最高速度18.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-30-node-share-links.htm" title="「10月30日」最高速度22.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月30日」最高速度22.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-winxray-github.htm" title="「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -133,7 +134,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -166,6 +167,15 @@
                         <div class="row">
                             <div class="col-xl-12 ">
                                 <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                                     <p>
                                     Node Xray机场节点官网 版权所有
                                     <br />

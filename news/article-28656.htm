@@ -1,0 +1,226 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-28656.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Visual Studio App Center 中的 Bug 跟踪服务</title>
+        <meta name="description" content="我在之前的一篇文章 《使用 Visual Studio App Center 持续监视应用使用情况和问题》 中介绍了 App Center 的基本功能及使用入门，其中诊断 可以自动手机用户的崩溃或异常" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>Visual Studio App Center 中的 Bug 跟踪服务</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/31247ea208c0ff9838733b0d86abcc22.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>我在之前的一篇文章 《<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.cnblogs.com/dino623/p/use-visual-studio-app-center-to-continuously-monitor-application-usage-and-problems.html"  target="_blank" rel="nofollow">使用 Visual Studio App Center 持续监视应用使用情况和问题</a>》 中介绍了 App Center 的基本功能及使用入门，其中<strong>诊断</strong> 可以自动手机用户的崩溃或异常，并在 App Center 的网页显示详细的错误信息。</p> <p>但是日常工作中我并不会常常登录 App Center 去关心这些诊断数据。针对这种情况，App Center 提供了 Service、Webhook 和 Email 去跟踪诊断信息，它们可以帮用户创建 Bug 或 Issue，记录 App Center 收集到的 Crash 信息。这篇文章将介绍其中的 Service 功能怎么帮助我处理诊断信息。</p> <h2 id="github">Github</h2> <p>App Center 集成了 Github、Azure DevOps 和 Jira 三种服务，我日常只使用 Github 和 Azure DevOps，所以我只介绍这两种。</p> <p>如果想要将诊断信息通知到 Github，首先导航到<strong>Settings</strong>，选择<strong>Services</strong>，然后点击<strong>Github</strong>。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9ae285fc36cc13aaf2432d9c8670a84e.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>登录 Github，点击<strong>Authorize VSAppCenter</strong> 授权给 App Center。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/85dff6d4aebca65200247c823e2aa14d.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>现在<strong>Bug tracker</strong> 列表里可以看到授权的 Github 账户，选中它并选中需要接受信息的 Github Repo，点击<strong>Next</strong>。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/651dcaabf436b797fa5024c35274c0c0.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>在下一个页面打开<strong>Auto create ticket</strong>，点击<strong>Add</strong> 完成配置。</p> <p>之后，每当有新的 Crash，App Center 会在 Github 自动创建一个新的 Issue，并有一个导航到这个 Crash 的链接：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a459ec9aa42fada30fada9fb4e94bd05.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <h2 id="azure-devops-service">Azure DevOps Service</h2> <p>如果想要集成 Azure DevOps Service 服务，可以打开<strong>Services</strong> 页面，点击<strong>Add account or service</strong>，选择<strong>Azure DevOps</strong>。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8fbe1961070a3a9d5f0ed1fcc65f657f.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>登录 Azure DevOps Service，在应用授权页面点击<strong>接受</strong> 完成授权。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8946936354e5566e277b03b22e913a05.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <p>接下来的操作和 Github 的操作基本一样。之后如果有新的 Crash，Azure DevOps 会新建一个 Bug。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0782550e581499cf66143fddef65d511.jpg" alt="Visual Studio App Center 中的 Bug 跟踪服务"></p> <h2 id="最后">最后</h2> <p>我想 Jira 的服务用起来应该也差不多，因为我没用到就部介绍了。关于 App Center Service 的更多内容请参考以下文档：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/appcenter/dashboard/bugtracker/?WT.mc_id=WD-MVP-5003763"  target="_blank" rel="nofollow">App Center bug 跟踪器集成</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-28196.htm">vue &#8211; vue基础/vue核心内容_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-28659.htm">动物医院学什么科目好（动物医院是干嘛的）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26795.htm" title="Java 超详细讲解ThreadLocal类的使用_java">Java 超详细讲解ThreadLocal类的使用_java</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-winxray-github.htm" title="「10月3日」最高速度21.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月3日」最高速度21.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-18980.htm" title="宠物医院办理诊疗许可证需要什么材料（宠物医院证件办理流程）">宠物医院办理诊疗许可证需要什么材料（宠物医院证件办理流程）</a></li>
+                        <li class="py-2"><a href="/news/article-27261.htm" title="教你如何获取Harbor的带tag的镜像清单_docker">教你如何获取Harbor的带tag的镜像清单_docker</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-winxray-github.htm" title="「10月7日」最高速度18.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月7日」最高速度18.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-winxray-node.htm" title="「11月17日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月17日」最高速度19M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20343.htm" title="专门卖狗的网站有哪些（专业卖狗的网站有哪些）">专门卖狗的网站有哪些（专业卖狗的网站有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-30-node-share.htm" title="「9月30日」最高速度21M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月30日」最高速度21M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23095.htm" title="宠物粮加工机器设备厂家有哪些 宠物粮加工机器设备厂家有哪些品牌">宠物粮加工机器设备厂家有哪些 宠物粮加工机器设备厂家有哪些品牌</a></li>
+                        <li class="py-2"><a href="/news/article-27260.htm" title="一段解决kafka消息处理异常的经典对话">一段解决kafka消息处理异常的经典对话</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
