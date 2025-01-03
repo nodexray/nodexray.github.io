@@ -1,0 +1,229 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-34839.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址</title>
+        <meta name="description" content="实现一个通讯录； 通讯录可以用来存储1000个人的信息，每个人的信息包括： 姓名、性别、年龄、电话、住址 提供方法： 1. 添加联系人信息 2. 删除指定联系人信息 3. 查找指定联系人信息 4. 修" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>实现一个通讯录，可以用来存储1000个人的信息，每个人的信息包括：姓名，年龄，性别，电话，住址</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>实现一个通讯录；<br /> 通讯录可以用来存储1000个人的信息，每个人的信息包括：<br /> 姓名、性别、年龄、电话、住址</p> <p>提供方法：<br /> 1. 添加联系人信息<br /> 2. 删除指定联系人信息<br /> 3. 查找指定联系人信息<br /> 4. 修改指定联系人信息</p> <p>5. 显示所有联系人信息<br /> 6. 清空所有联系人</p> <pre><code class="language-cpp">#include"contact.h"   int add_contact(pContact pcon) {     if(pcon-&gt;count_user ==MAX) 	{ 		printf("通讯录已满！"); 		return -1; 	} 	else 	{ 	printf("请输入名字："); 	scanf("%s",pcon-&gt;people[pcon-&gt;count_user].name );     printf("请输入性别："); 	scanf("%s",pcon-&gt;people[pcon-&gt;count_user].sex);     printf("请输入年龄："); 	scanf("%d",&amp;pcon-&gt;people[pcon-&gt;count_user].age);     printf("请输入电话："); 	scanf("%s",pcon-&gt;people[pcon-&gt;count_user].tel);     printf("请输入地址："); 	scanf("%s",pcon-&gt;people[pcon-&gt;count_user].add ); 	pcon-&gt;count_user++;     } 	return 0;      } int del_contact(pContact pcon) { 	int i=0; 	 int rel=search_contact(pcon); 		 if(rel!=-1) 		 { 	         for(i=rel;i&lt;pcon-&gt;count_user-1;i++) 			 { 				 pcon-&gt;people[i] =pcon-&gt;people [i+1]; 			 }              pcon-&gt;count_user--; 		     return 1; 		 } 		 else 		 { 		     printf("不存在！"); 		     return -1; 		 } } int  search_contact(pContact pcon) { 	int i;     char name[NAME_LIGHT]; 	printf("请输入要查找的名字："); 	scanf("%s",name);  	for(i=0;i&lt;pcon-&gt;count_user;i++) 	{ 		if(strcmp(pcon-&gt;people[i].name ,name)==0) 		{           printf("\tname\tsex\tage\ttel\tadd\n");            printf("%10s",pcon-&gt;people[i].name ); 	       printf("%5s",pcon-&gt;people[i].sex); 	       printf("%10d",pcon-&gt;people[i].age ); 	       printf("%10s",pcon-&gt;people[i].tel ); 	       printf("%10s\n",pcon-&gt;people[i].add ); 			return 1; 		} 	}      return -1; }  int modify_contact(pContact pcon) {     int rel=search_contact(pcon); 	if(rel!=-1) 	{ 	    printf("请输入姓名："); 		scanf("%s",pcon-&gt;people[pcon-&gt;count_user ].name); 		printf("请输入性别："); 		scanf("%s",pcon-&gt;people[pcon-&gt;count_user].sex ); 		printf("请输入年龄："); 		scanf("%d",&amp;pcon-&gt;people[pcon-&gt;count_user].age); 		printf("请输入电话："); 		scanf("%s",pcon-&gt;people[pcon-&gt;count_user ].tel ); 		printf("请输入地址："); 		scanf("%s",pcon-&gt;people[pcon-&gt;count_user ].add );         return 1; 	} 	else 	{ 	printf("输入错误！"); 	return -1;  	} }  int show_contact(pContact pcon) {    int i;    printf("\tname\tsex\tage\ttel\tadd\n");    for(i=0;i&lt; pcon-&gt;count_user;i++)    {        printf("%10s",pcon-&gt;people[i].name ); 	   printf("%5s",pcon-&gt;people[i].sex); 	   printf("%10d",pcon-&gt;people[i].age ); 	   printf("%10s",pcon-&gt;people[i].tel ); 	   printf("%10s\n",pcon-&gt;people[i].add ); 	       }     printf("\n");    return 0; }  int clear_contact(pContact pcon) {      pcon-&gt;count_user =0; 	 return 1;  }</code></pre> <pre><code class="language-cpp">#ifndef CONTACT_H #define CONTACT_H  #endif  #include&lt;stdio.h&gt; #include&lt;string.h&gt; #include&lt;stdlib.h&gt;  #define NAME_LIGHT 10 #define SEX_LIGHT   4 #define TEL_LIGHT  20 #define ADD_LIGHT  30 #define MAX 1000  struct peopleInfo {        char name[NAME_LIGHT]; 	   char sex[SEX_LIGHT]; 	   int  age; 	   char tel[TEL_LIGHT]; 	   char add[ADD_LIGHT];  };  struct contact   {        struct peopleInfo people[MAX]; 	   int count_user;  }; typedef struct contact  *pContact;  int add_contact(pContact pcon); int del_contact(pContact pcon); int search_contact(pContact pcon); int modify_contact(pContact pcon); int show_contact(pContact pcon); int clear_contact(pContact pcon); </code></pre> <pre><code class="language-cpp">#include"contact.h" int main() {     int n; 	struct contact people;     people.count_user=0; 	printf("请输入一个数："); 	scanf("%d",&amp;n); 	switch(n) 	{ 	case 1: 		add_contact(&amp;people); 		break; 	case 2: 		del_contact(&amp;people); 		break; 	case 3: 		search_contact(&amp;people); 		break; 	case 4: 		clear_contact(&amp;people); 		break; 	case 5: 		modify_contact(&amp;people); 		break; 	case 6: 		show_contact(&amp;people); 		break; 	default: 		printf("输入错误！"); 		break; 	}     	return 0;  }  </code></pre> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230112/e9f2c7f73aa40e8b9a6414686cf193e8.jpg"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230112/4bc64de5e62a2b32e36b210bbeb5d275.jpg"></p> <p></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34361.htm">面试官：请用SQL模拟一个死锁</a></p>
+                                        <p>下一个：<a href="/news/article-34840.htm">猫进屋十大预兆黑色猫（猫进屋好不好?）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-winxray-windows.htm" title="「12月2日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月2日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-30549.htm" title="开个小型宠物食品加工厂客户怎么样呢视频讲解（宠物食品加工厂手续）">开个小型宠物食品加工厂客户怎么样呢视频讲解（宠物食品加工厂手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-winxray-github.htm" title="「11月11日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月11日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-free-high-speed-nodes.htm" title="「12月13日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月13日」最高速度21.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-winxray-node-github.htm" title="「9月6日」最高速度20.2M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月6日」最高速度20.2M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-winxray-node-github.htm" title="「9月9日」最高速度20.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月9日」最高速度20.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-node-subscribe-links.htm" title="「10月17日」最高速度22.3M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月17日」最高速度22.3M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-free-high-speed-nodes.htm" title="「9月4日」最高速度19.3M/S，2024年Xray Node每天更新免费机场订阅节点链接">「9月4日」最高速度19.3M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-23092.htm" title="南京宠物托运飞机（南京机场托运宠物）">南京宠物托运飞机（南京机场托运宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe-links.htm" title="「12月5日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月5日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
