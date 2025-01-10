@@ -2,12 +2,11 @@
 <html class="no-js" lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://nodexray.github.io" />
+        <link rel="canonical" href="https://nodexray.github.io/news/article-38707.htm" />
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>2024-12归档 - 第9页 - Node Xray机场节点官网</title>
-        <meta name="keywords" content="2024-12归档Node Xray机场节点官网" />
-        <meta name="description" content="2024-12归档，当前是第9页" />
+    <title>vue项目中数据更新页面不刷新问题</title>
+        <meta name="description" content="这种情况可以分为很多种.但是究其原因就是vue3.0以下版本无法监听对象（包括数组以及对象）的变化，当数据发生变化的时候vue的刷新机制是监听不到数据变化的，所以需要我们在实际应用过程中通过各种处理来" />
         <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
@@ -35,7 +34,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <header>
         <div class="header-area header-transparent">
             <div class="main-header header-sticky">
@@ -81,9 +80,9 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 col-md-10">
                             <div class="hero__caption hero__caption2 pt-50">
-                                <h1>2024-12 归档</h1>
+                                <h1>vue项目中数据更新页面不刷新问题</h1>
                                 <p>
-                                    <a href="/">首页</a> / 2024-12 归档
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
                                 </p>
                             </div>
                         </div>
@@ -100,76 +99,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="xcblog-blog-list">
-                                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                                <div class="col-md-3">
-                                    <div class="support-location-img">
-                                        <a href="/news/article-19889.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240820-2/06c6255ff691ed255ef4657b51ca3d8b.webp" alt="重庆宠物领养中心官网地址电话是多少（重庆宠物猫领养中心地址）">
-                                        </a>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>这种情况可以分为很多种.但是究其原因就是vue3.0以下版本无法监听对象（包括数组以及对象）的变化，当数据发生变化的时候vue的刷新机制是监听不到数据变化的，所以需要我们在实际应用过程中通过各种处理来达到页面刷新的目的。</p> <p>1.这是一种简单粗暴的解决方案吧,那就是在数据更新完成之后对页面进行重排和重绘操纵,但是这种方式对页面的消耗会急剧上升,不到万不得已还是不要使用的好，具体实现方法如下:</p> <pre><code>在data中定义一个阈值,比如show，初始为true;  代码实现：  this.show = false; setTimeout(() =&gt; {    this.show = true  },0)</code></pre> <p>2.在数据都处理完成之后,使用this.$froceUpdate()进行强制刷新；</p> <p>3.在数据处理完成之后进行数据重置操作,但是值得注意的是这种方式只对对象有效(亲测数组无效,有朋友能搞来的话欢迎留言,让我膜拜一下,嘿嘿)，并且这种方式不适用于对象中有键值为引用类型的数据源（针对这种方式,个人觉得可以将引用类型数据显示的模板单独封装一个组件,再在这个组件中进行数据刷新,当然,监听数据变化是必不可少的,这个方法没有测试过,按理说应该没问题）</p> <pre><code>let temp = this.data; this.data = null; this.data = temp</code></pre> <p>4.采用官方提供的方法,使用过this.$set全局方法进行数据更新;这里我们要说一下vue的数据绑定机制了;当一个页面创建的过程中，html模板只有只会绑定在data中初始创建的时候已经存在的数据，如果在页面创建之后我们追加数据的话就会出现数据更新了，但是页面却没有刷新的情况,this.$set(数据源,要追加的数据的键 / 在源数据中的索引,新数据)这个方法就是vue官方提供的用于追加数据的,并能够实现页面刷新！</p> <p>5.针对数组数据,常见修改数据之后页面不刷新的原因有:</p> <ol> <li>通过数组下标修改数组元素</li> <li>修改数组长度</li> </ol> <p>那么在修改数组数据的时候,我们应该使用push(),pop(),shift(),unshift(),splice(),sort()，reverse()等原生的方法去操作数据,因为vue可以直接检测这些方法所带来的数组数据变化。</p> <p>6.数据不刷新最根本的原因还是因为vue认为模板结构没有更新，所以不会生成新的虚拟的dom，所以我们可以为需要更新的dom添加一个会由操作结束而发生变化的key值，这样就会刷新了（这是最近学到的一个新技能，再来补充一下）。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38220.htm">开宠物食品厂有利润吗知乎文章（开一家宠物食品店怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-38710.htm">宠物粮生产利润 宠物粮生产利润怎么样</a></p>
                                     </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="right-caption">
-                                        <!-- Section Tittle -->
-                                        <div class="section-tittle">
-                                            <a href="/news/article-19889.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">重庆宠物领养中心官网地址电话是多少（重庆宠物猫领养中心地址）</h3>
-                                            </a>
-                                        </div>
-                                        <div class="support-caption">
-                                            <p class="mb-40">摘要：       本篇文章给大家谈谈重庆宠物领养中心官网地址电话是多少，以及重庆宠物猫领养中心地址对应的知识点，希望对各位有所帮助，不要忘了收藏本站喔。本文目录一览：1、有哪些宠物救助中心呢?...</p>
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                                <div class="col-md-3">
-                                    <div class="support-location-img">
-                                        <a href="/news/article-19887.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240820-2/06c6255ff691ed255ef4657b51ca3d8b.webp" alt="宠物粮生产流程视频 宠物粮生产流程视频教程">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="right-caption">
-                                        <!-- Section Tittle -->
-                                        <div class="section-tittle">
-                                            <a href="/news/article-19887.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">宠物粮生产流程视频 宠物粮生产流程视频教程</h3>
-                                            </a>
-                                        </div>
-                                        <div class="support-caption">
-                                            <p class="mb-40">摘要：       大家好，今天小编关注到一个比较有意思的话题，就是关于宠物粮生产流程视频的问题，于是小编就整理了5个相关介绍宠物粮生产流程视频的解答，让我们一起看看吧。卖宠物粮怎么样？创造与魔法看视</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                                                        <div class="row item xcblog-blog-item" data-date="2024-12-01">
-                                <div class="col-md-3">
-                                    <div class="support-location-img">
-                                        <a href="/free-nodes/2024-12-1-free-node-subscribe.htm" class="xcblog-blog-url">
-                                            <img src="/uploads/20240820-2/caede0f1a7e6212a50475f986e10fa34.webp" alt="「12月1日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-md-9">
-                                    <div class="right-caption">
-                                        <!-- Section Tittle -->
-                                        <div class="section-tittle">
-                                            <a href="/free-nodes/2024-12-1-free-node-subscribe.htm" class="xcblog-blog-url">
-                                                <h3 class="xcblog-blog-title">「12月1日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</h3>
-                                            </a>
-                                        </div>
-                                        <div class="support-caption">
-                                            <p class="mb-40">这一次的节点更新覆盖了美国、日本、韩国、香港、新加坡、加拿大、欧洲等地区,最高速度可达20.8 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <ul class="pagination"><li><a href="/date/2024-12/page-9.htm">&laquo;</a></li> <li><a href="/date/2024-12/">1</a></li><li><a href="/date/2024-12/page-2.htm">2</a></li><li><a href="/date/2024-12/page-3.htm">3</a></li><li><a href="/date/2024-12/page-4.htm">4</a></li><li><a href="/date/2024-12/page-5.htm">5</a></li><li><a href="/date/2024-12/page-6.htm">6</a></li><li><a href="/date/2024-12/page-7.htm">7</a></li><li><a href="/date/2024-12/page-8.htm">8</a></li><li><a href="/date/2024-12/page-9.htm">9</a></li><li class="active"><span>10</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                        </div>
-                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -177,16 +113,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31024.htm" title="宠物领养合同违约金30000元合法吗知乎 宠物领养合同违约金30000元合法吗知乎">宠物领养合同违约金30000元合法吗知乎 宠物领养合同违约金30000元合法吗知乎</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-winxray-windows.htm" title="「11月15日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月15日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-9-winxray-node.htm" title="「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接">「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-28196.htm" title="vue &#8211; vue基础/vue核心内容_在线工具">vue &#8211; vue基础/vue核心内容_在线工具</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-8-winxray-node-github.htm" title="「1月8日」最高速度21M/S，2025年Xray每天更新免费机场订阅节点链接">「1月8日」最高速度21M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-node-subscribe-links.htm" title="「12月5日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月5日」最高速度22.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-34360.htm" title="使用Python实现KNN算法解决简单分类问题">使用Python实现KNN算法解决简单分类问题</a></li>
-                        <li class="py-2"><a href="/news/article-28656.htm" title="Visual Studio App Center 中的 Bug 跟踪服务">Visual Studio App Center 中的 Bug 跟踪服务</a></li>
-                        <li class="py-2"><a href="/news/article-25871.htm" title="Java 8中获取当前的时间戳">Java 8中获取当前的时间戳</a></li>
-                        <li class="py-2"><a href="/news/article-38707.htm" title="vue项目中数据更新页面不刷新问题">vue项目中数据更新页面不刷新问题</a></li>
+                        <li class="py-2"><a href="/news/article-21687.htm" title="动物打预防针去哪里打疫苗呢（动物打疫苗在哪里打）">动物打预防针去哪里打疫苗呢（动物打疫苗在哪里打）</a></li>
+                        <li class="py-2"><a href="/news/article-34840.htm" title="猫进屋十大预兆黑色猫（猫进屋好不好?）">猫进屋十大预兆黑色猫（猫进屋好不好?）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-node-subscribe-links.htm" title="「11月18日」最高速度19.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月18日」最高速度19.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-35757.htm" title="vue3及与vue2的区别总结（部分）">vue3及与vue2的区别总结（部分）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-node-share.htm" title="「10月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月11日」最高速度22.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-latest-winxray-node.htm" title="「11月6日」最高速度21.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月6日」最高速度21.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-29122.htm" title="同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊">同安宠物领养中心在哪里有 同安宠物领养中心在哪里有啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-winxray-github.htm" title="「12月27日」最高速度22.6M/S，2024年Xray每天更新免费机场订阅节点链接">「12月27日」最高速度22.6M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25409.htm" title="养什么动物不吵不脏不臭（养什么动物不吵不脏不臭不花钱）">养什么动物不吵不脏不臭（养什么动物不吵不脏不臭不花钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-node-subscribe.htm" title="「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
