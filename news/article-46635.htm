@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-46635.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>获取网站后台权限理解</title>
+        <meta name="description" content="文章目录  一、后台常见位置查找   1.1 猜解常用路径 1.2 robots.txt 1.3 访问报错页面 1.4 查看图片相关属性 1.5 CMS指纹识别 1.6 利用谷歌黑语法来查找   二、" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-46635.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="获取网站后台权限理解" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/06c6255ff691ed255ef4657b51ca3d8b.webp" />
+        <meta property="og:release_date" content="2025-01-26T10:00:02" />
+    <meta property="og:updated_time" content="2025-01-26T10:00:02" />
+        <meta property="og:description" content="文章目录  一、后台常见位置查找   1.1 猜解常用路径 1.2 robots.txt 1.3 访问报错页面 1.4 查看图片相关属性 1.5 CMS指纹识别 1.6 利用谷歌黑语法来查找   二、" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="获取网站后台权限理解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>获取网站后台权限理解</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_1" rel="nofollow">一、后台常见位置查找</a></li> <li> <ul> <li><a href="#11__2" rel="nofollow">1.1 猜解常用路径</a></li> <li><a href="#12_robotstxt_5" rel="nofollow">1.2 robots.txt</a></li> <li><a href="#13__8" rel="nofollow">1.3 访问报错页面</a></li> <li><a href="#14__11" rel="nofollow">1.4 查看图片相关属性</a></li> <li><a href="#15_CMS_14" rel="nofollow">1.5 CMS指纹识别</a></li> <li><a href="#16__19" rel="nofollow">1.6 利用谷歌黑语法来查找</a></li> </ul> </li> <li><a href="#_37" rel="nofollow">二、利用工具查找</a></li> <li> <ul> <li><a href="#21__38" rel="nofollow">2.1 爬虫扫描</a></li> <li><a href="#22__41" rel="nofollow">2.2 字典爆破后台路径</a></li> </ul> </li> <li><a href="#23__44" rel="nofollow">2.3 端口扫描</a></li> </ul> </div> </h1> <h2> <a id="11__2" rel="nofollow"></a>1.1 猜解常用路径</h2> <ul> <li>Admin、admin_login.asp、admin_login.php部分网站默认都是admin目录后台。虽然开发人员安全意识逐渐完善，但还是有相当一部分网站管理员直接就用默认的路径。我们找后台时从常见的默认界面入手往往会有意外收获。</li> </ul> <h2> <a id="12_robotstxt_5" rel="nofollow"></a>1.2 robots.txt</h2> <ul> <li>robots.txt是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎，此网站中的哪些内容是不能被搜索引擎获取的，哪些是可以被获取的。管理员们为了让搜索引擎不要收录admin页面而在robots.txt里面做了限制规则。但是这个robots.txt页面，谁都可以看，于是我们就可以比较清楚的了解网站的结构，比如admin目录啊、include目录啊等等。</li> </ul> <h2> <a id="13__8" rel="nofollow"></a>1.3 访问报错页面</h2> <ul> <li>当我们正常浏览网页找不到后台时可以尝试去请求一些网站不存在的页面，让网页显示报错信息有时也能看到网站的真实路径。</li> </ul> <h2> <a id="14__11" rel="nofollow"></a>1.4 查看图片相关属性</h2> <ul> <li>当进入网站后，可以先随意点击下几张图片的属性，看看它们的文件路径是否可以加以利用。因为有些旧网站会直接把编辑器放在后台目录后面，所有当我们查看图片属性的时候会将网站路径上传点暴露出来。</li> </ul> <h2> <a id="15_CMS_14" rel="nofollow"></a>1.5 CMS指纹识别</h2> <ul> <li> <p>CMS（Content Management System），意为”内容管理系 统”。CMS只需要修改几个静态模版，就可以当成一个网站使用。可以利用在线CMS指纹识别、云悉识别等网站来进行CMS识别 。</p> </li> <li> <p>比如像dede，后台就是/dede。除此以外，还有很多开源程序，如Joomla就是/administrator，wordpress就是/wp-admin。国内的CMS通常就是/admin和/manage，要么就是/login，这样命名后台主要还是管理员登陆起来比较方便。如果你知道了这是个什么CMS，但是却不知道他的后台登陆入口，也可以去官网或者一些下载站下载源码，看看都有哪些路径。</p> </li> </ul> <h2> <a id="16__19" rel="nofollow"></a>1.6 利用谷歌黑语法来查找</h2> <ul> <li>Google对于搜索的关键字提供了多种语法，合理使用这些语法，将使我们得到的搜索结果更加精确。当然，Google允许用户使用这些语法的目的是为了获得更加精确的结果，但是黑客却可以利用这些语法构造出特殊的关键字，从而搜索到我们想要的关键信息。</li> </ul> <pre><code>搜索网站后台地址 site:目标网站 intitle:管理/后台/登陆/管理员 site:目标网站 inurl:login/admin/guanlidenglu site: 目标网站 intext: 管理/后台/登陆/管理员  搜索网站敏感信息 intitle:”Index of” .sh_history intitle:”index of” etc/shadow intitle:”index of” spwd  搜索网站特定文件 site:目标网站 filetype:doc site:目标网站 filetype:xls site:目标网站 filetype:pdf </code></pre> </h1> <h2> <a id="21__38" rel="nofollow"></a>2.1 爬虫扫描</h2> <ul> <li>利用AWVS、BurpSuite自带的爬虫功能访问网站首页从而获取网站的敏感文件敏感目录等信息。爬取网站目录原理可以这样理解:我们在首页A中存在爬取A的所有 URL链接B，C，D…接着继 续爬取B ，C， D网页中的URL链接，层层递进，直到将所有URL链接爬取完成。之后便能看到我们需要的信息。</li> </ul> <h2> <a id="22__41" rel="nofollow"></a>2.2 字典爆破后台路径</h2> <ul> <li>当进行完爬虫扫描后，发现目录中没有我们需要的网站后台地址。也许这后台地址并没有像我们想象中被放置链接中或者爬行深度不够等等原因。尝试用后台字典来爆破后台地址。常用的工具有dirsearch、御剑等工具。我们是否能成功跑出后台取决于字典是否足够强大。</li> </ul> </h1> <ul> <li>还有一些管理员喜欢把服务器划分在一个比较大的端口号，然后单独把网站后台地址放置其中。对于这种情况，可以通过扫描网站来获取端口信息，然后逐 一对其进行访问浏览，看看会不会后台地址被放置在某个端口。对于端口的扫描，比较推荐的是Nmap。有些比较狡猾的管理员不放心把后台地址放到当前站点页面，就喜欢把后台地址放置到子域名当中。可以通过对其子域名收集，说不定就有你想要的后台地址信息。</li> </ul> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46162.htm">java中序列化如果有些字段不想进行序列化怎么办</a></p>
+                                        <p>下一个：<a href="/news/article-46636.htm">宠物店加盟大概要多少钱（宠物店加盟需要注意哪些坑）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-winxray-github.htm" title="「1月14日」最高速度19.3M/S，2025年Xray每天更新免费机场订阅节点链接">「1月14日」最高速度19.3M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-today-winxray-node.htm" title="「11月24日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月24日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-winxray-github.htm" title="「10月7日」最高速度18.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月7日」最高速度18.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-latest-winxray-node.htm" title="「10月14日」最高速度18.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月14日」最高速度18.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-33883.htm" title="瑞派宠物医院多少家门店（瑞派宠物医院企查查）">瑞派宠物医院多少家门店（瑞派宠物医院企查查）</a></li>
+                        <li class="py-2"><a href="/news/article-24018.htm" title="es修改字段text类型为date类型">es修改字段text类型为date类型</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-node-share.htm" title="「10月9日」最高速度21.2M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月9日」最高速度21.2M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-winxray-node.htm" title="「11月10日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月10日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-winxray-github.htm" title="「11月28日」最高速度19.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月28日」最高速度19.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-22179.htm" title="springboot集成elasticsearch注意事项">springboot集成elasticsearch注意事项</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
