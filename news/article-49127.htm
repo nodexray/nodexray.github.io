@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-49127.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>小程序进阶-如何去除或隐藏页面滚动条</title>
+        <meta name="description" content="前言   当小程序页面展示内容超过屏幕高度或宽度，我们想要看到全部内容，这时候就必须用到页面滚动。可是，我们发现滚动页面的滚动条特别的突兀和丑陋，而且参考大部分的小程序都是将滚动条去掉了。那么，我们该" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-49127.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="小程序进阶-如何去除或隐藏页面滚动条" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/569ff6b02986298dcd8cd414534c5c50.webp" />
+        <meta property="og:release_date" content="2025-01-31T07:20:04" />
+    <meta property="og:updated_time" content="2025-01-31T07:20:04" />
+        <meta property="og:description" content="前言   当小程序页面展示内容超过屏幕高度或宽度，我们想要看到全部内容，这时候就必须用到页面滚动。可是，我们发现滚动页面的滚动条特别的突兀和丑陋，而且参考大部分的小程序都是将滚动条去掉了。那么，我们该" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="小程序进阶-如何去除或隐藏页面滚动条">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>小程序进阶-如何去除或隐藏页面滚动条</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>前言</h2> <p>  当小程序页面展示内容超过屏幕高度或宽度，我们想要看到全部内容，这时候就必须用到页面滚动。可是，我们发现滚动页面的滚动条特别的突兀和丑陋，而且参考大部分的小程序都是将滚动条去掉了。那么，我们该怎么去掉滚动条呢？</p> <h2><a id="_3" rel="nofollow"></a>方案一</h2> <p>  我们知道，当展示内容超过页面高度，会触发page默认的滚动条。如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221117/3ea57b0d01e07d4d8aca80e4d84ac5dd.jpg" alt="小程序进阶-如何去除或隐藏页面滚动条"><br /> 在小程序社区，我找到了一个方案：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221117/150729ce3cd6b3f5ac222bc647a066b9.jpg" alt="小程序进阶-如何去除或隐藏页面滚动条"><br /> 看代码：<br /> index.wxss</p> <pre><code class="prism language-wxss">.intro{   width: 100vw;   height: 100vh;   overflow: hidden;   margin: auto; } .sub{   height: 100%;   width: calc(100vw + 6px);   overflow-x: hidden; }</code></pre> <p>index.wxml</p> <pre><code class="prism language-wxml">&lt;view class="intro"&gt; 	&lt;view class="sub"&gt; 		页面内容 	&lt;/view&gt; &lt;/view&gt;</code></pre> <p>简而言之，就是将滚动条很好的隐藏起来了！！！！！</p> <h2><a id="_33" rel="nofollow"></a>方案二</h2> <p>当然我们更多使用的应该是scroll-view，隐藏滚动条的方法也很简单。<br /> 我们可以在app.wxss（全局）或当前页面.wxss加入如下代码即可：</p> <pre><code class="prism language-wxss">::-webkit-scrollbar {   display: none;   width: 0;   height: 0;   color: transparent; }</code></pre> <p>值得注意的是：</p> <pre><code class="prism language-php"><span class="token operator">&lt;</span>scroll<span class="token operator">-</span>view   scroll<span class="token operator">-</span>y style<span class="token operator">=</span><span class="token string double-quoted-string">"width: 100%; height: 100%;"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>scroll<span class="token operator">-</span>view<span class="token operator">&gt;</span></code></pre> <p>scroll-view高度不要设置为相对高度，如100%。否则，page页面的滚动条又会出现了！！！<br /> 我们可以这样做：</p> <pre><code class="prism language-php"><span class="token operator">&lt;</span>scroll<span class="token operator">-</span>view   scroll<span class="token operator">-</span>y style<span class="token operator">=</span><span class="token string double-quoted-string">"width: 100%; height: 100vh;"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>scroll<span class="token operator">-</span>view<span class="token operator">&gt;</span></code></pre> <p>如果仍然无效，减少height的值，例如设为height:99vh。scroll-view高度大于page高度仍会出现滚动条的。<br /> 父元素如page记得设置：</p> <pre><code class="prism language-*">overflow: hidden;</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-48466.htm">狗粮品牌排行榜有哪些品牌的（狗粮排行榜简析十大狗粮品牌）</a></p>
+                                        <p>下一个：<a href="/news/article-49128.htm">数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-winxray-github.htm" title="「1月23日」最高速度21.8M/S，2025年Xray每天更新免费机场订阅节点链接">「1月23日」最高速度21.8M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-36747.htm" title="动物疫苗使用时的注意事项是什么 动物疫苗使用时的注意事项是什么呢">动物疫苗使用时的注意事项是什么 动物疫苗使用时的注意事项是什么呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-16-free-node-subscribe.htm" title="「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月16日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38710.htm" title="宠物粮生产利润 宠物粮生产利润怎么样">宠物粮生产利润 宠物粮生产利润怎么样</a></li>
+                        <li class="py-2"><a href="/news/article-34361.htm" title="面试官：请用SQL模拟一个死锁">面试官：请用SQL模拟一个死锁</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-high-speed-nodes.htm" title="「11月19日」最高速度18.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月19日」最高速度18.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-latest-winxray-node.htm" title="「1月19日」最高速度23M/S，2025年Xray每天更新免费机场订阅节点链接">「1月19日」最高速度23M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-winxray-node.htm" title="「10月22日」最高速度20.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月22日」最高速度20.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-node-share-links.htm" title="「12月22日」最高速度21M/S，2024年Xray每天更新免费机场订阅节点链接">「12月22日」最高速度21M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
