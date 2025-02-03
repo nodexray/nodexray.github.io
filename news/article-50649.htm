@@ -1,0 +1,250 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-50649.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>如何在Web前端实现CAD图文字全文搜索功能之技术分享</title>
+        <meta name="description" content="在CAD看图过程中我们经常会需要用到查找文字的功能，在AutoCAD软件查找一个文字时，可以通过打开左下角输入命令find，输入查找的文字，然后设置查找范围，就可以搜索到需要查询的文字。但在Web网页" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-50649.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="如何在Web前端实现CAD图文字全文搜索功能之技术分享" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/b641e2e60268f1f87f54671ea50f0aeb.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:27:45" />
+    <meta property="og:updated_time" content="2025-02-03T09:27:45" />
+        <meta property="og:description" content="在CAD看图过程中我们经常会需要用到查找文字的功能，在AutoCAD软件查找一个文字时，可以通过打开左下角输入命令find，输入查找的文字，然后设置查找范围，就可以搜索到需要查询的文字。但在Web网页" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何在Web前端实现CAD图文字全文搜索功能之技术分享">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>如何在Web前端实现CAD图文字全文搜索功能之技术分享</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p class="md-end-block md-p"><span class="md-plain"> 在CAD看图过程中我们经常会需要用到查找文字的功能，在AutoCAD软件查找一个文字时，可以通过打开左下角输入命令<span class="md-pair-s"><code>find</code><span class="md-plain">，输入查找的文字，然后设置查找范围，就可以搜索到需要查询的文字。但在Web网页端打开CAD图查找文字时，有没有同样的办法呢？另外，如果有没有办法实现在很多图纸中像百度那样做到全文检索的功能？</span></span></span></p> </h1> <h2 class="md-end-block md-heading"><span class="md-plain">CAD图Web打开展示</span></h2> <p class="md-end-block md-p"><span class="md-plain"> 拿之前分享的一款开源的利用最新技术栈<span class="md-pair-s"><code>Vue3</code><span class="md-plain">开发的<span class="md-meta-i-c  md-link"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vjmap.com/app/cloud"  rel="nofollow"><span class="md-plain">唯杰地图云端图纸管理平台</span></a><span class="md-plain">为例. 他实现了对<span class="md-pair-s"><code>AutoCAD</code><span class="md-plain">格式的<span class="md-pair-s"><code>DWG</code><span class="md-plain">图纸的云端管理查看功能。能对CAD图纸在线上传、打开、查看、版本管理; 在线图层管理切换查看功能; 属性数据查询功能等功能。</span></span></span></span></span></span></span></span></span></p> <h2 class="md-end-block md-heading"><span class="md-plain">图中文字查找</span></h2> <p class="md-end-block md-p"><span class="md-plain">图纸中文字查找方案</span></p> <h3 class="md-end-block md-heading"><span class="md-plain">方法一 直接后台读取CAD图纸内容，遍历所有的文字实体进行查找。</span></h3> <p class="md-end-block md-p"><span class="md-plain"> 主要的文字实体包括 单行文本<span class="md-pair-s"><code>AcDbText</code><span class="md-plain">，多行文本<span class="md-pair-s"><code>AcDbMText</code><span class="md-plain">,属性注记<span class="md-pair-s"><code>AcDbAttributeDefinition</code><span class="md-plain">,块属性<span class="md-pair-s"><code>AcDbAttribute</code></span></span></span></span></span></span></span></span></p> <p class="md-end-block md-p"><span class="md-plain"> 实现步骤:</span></p> <p class="md-end-block md-p md-focus"><span class="md-plain md-expand"> （1） 在前端写代码通过内存方式在后台打开CAD图形</span></p> <pre class="md-fences md-end-block ty-contain-cm modeLoaded"><span><span class="cm-comment">// 打开地图<br/><span><span class="cm-keyword">let<span class="cm-def">res<span class="cm-operator">=<span class="cm-keyword">await<span class="cm-variable">svc.<span class="cm-property">openMap({<br/><span><span class="cm-property">mapid:<span class="cm-string">'mapid',<span class="cm-comment">// 地图ID,(请确保此ID已存在，可上传新图形新建ID)<br/><span><span class="cm-property">mapopenway:<span class="cm-variable">vjmap.<span class="cm-property">MapOpenWay.<span class="cm-property">Memory,<span class="cm-comment">// 后台以内存方式打开已上传的图<br/><span>})</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre> <p class="md-end-block md-p"><span class="md-plain"> (2) 查找文本实体，因为前端是javascript语言，不可能直接去遍历后台图形数据库，这时可以用表达式查询来后台进行查询</span></p> <pre class="md-fences md-end-block ty-contain-cm modeLoaded"><span><span class="cm-keyword">let<span class="cm-def">query<span class="cm-operator">=<span class="cm-keyword">await<span class="cm-variable">svc.<span class="cm-property">exprQueryFeature({<br/><span><span class="cm-property">expr:<span class="cm-string-2">`gOutReturn := if((gInFeatureType == 'AcDbText' or  gInFeatureType == 'AcDbMText'  or  gInFeatureType == 'AcDbAttributeDefinition'  or  gInFeatureType == 'AcDbAttribute'  ), 1, 0);`,<br/><span><span class="cm-property">fields:<span class="cm-string">"",<br/><span><span class="cm-property">limit:<span class="cm-number">100000<br/><span> })</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre> <p class="md-end-block md-p"><span class="md-plain">表达式语法可参考<span class="md-link md-pair-s"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vjmap.com/guide/expr.html"  rel="nofollow">https://vjmap.com/guide/expr.html</a></span></span></p> <p class="md-end-block md-p"><span class="md-plain">这样查询有个缺点就是每次查询都要在后台打开CAD图形，然后再遍历图形数据库，根据表达式过滤出要查找的文字，效率低。</span></p> <p class="md-end-block md-p"><span class="md-image md-img-loaded" data-src="http://img.555519.xyz/uploads3/20220509/11da1a8176a9203bc8f3914a64bbc2bb.jpg" alt="如何在Web前端实现CAD图文字全文搜索功能之技术分享"><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/11da1a8176a9203bc8f3914a64bbc2bb.jpg" alt="如何在Web前端实现CAD图文字全文搜索功能之技术分享"></span></p> <h3 class="md-end-block md-heading"><span class="md-plain">方法二 通过SQL语句查询数据库来查找文字</span></h3> <p class="md-end-block md-p"><span class="md-plain">实现步骤:</span></p> <p class="md-end-block md-p"><span class="md-plain"> （1） 在前端写代码通过几何渲染方式在后台打开CAD图形，几何渲染方式第一次请求数据时，会在后台打开图形，然后把图形数据和属性数据会保存至空间数据库，之后请求都会在空间数据库里查询数据。</span></p> <pre class="md-fences md-end-block ty-contain-cm modeLoaded"><span><span class="cm-comment">// 打开地图<br/><span><span class="cm-keyword">let<span class="cm-def">res<span class="cm-operator">=<span class="cm-keyword">await<span class="cm-variable">svc.<span class="cm-property">openMap({<br/><span><span class="cm-property">mapid:<span class="cm-variable">env.<span class="cm-property">exampleMapId,<span class="cm-comment">// 地图ID,(请确保此ID已存在，可上传新图形新建ID)<br/><span><span class="cm-property">mapopenway:<span class="cm-variable">vjmap.<span class="cm-property">MapOpenWay.<span class="cm-property">GeomRender<span class="cm-comment">// 以几何数据渲染方式打开<br/><span>})</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre> <p class="md-end-block md-p"><span class="md-plain"> (2) sql语句查询文字，直接上代码</span></p> <pre class="md-fences md-end-block ty-contain-cm modeLoaded"><span><span class="cm-keyword">let<span class="cm-def">query<span class="cm-operator">=<span class="cm-keyword">await<span class="cm-variable">svc.<span class="cm-property">conditionQueryFeature({<br/><span><span class="cm-comment">//只需要写sql语句where后面的条件内容,字段内容请参考文档"服务端条件查询和表达式查询"<br/><span><span class="cm-comment">// 查询所有文字(包括单行文本，多行文本、块注记文字，属性文字) 具体类型数字参考文档"服务端条件查询和表达式查询-支持的cad实体类型" https://vjmap.com/guide/svrStyleVar.html<br/><span><span class="cm-property">condition:<span class="cm-string-2">`name='12' or name='13' or name='26' or name='27'`,<br/><span><span class="cm-property">fields:<span class="cm-string">""<br/><span> })</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></pre> <p class="md-end-block md-p"><span class="md-plain">SQL查询无需在后台再次打开CAD图形，直接使用SQL语句查询数据库,效率高。</span></p> <p class="md-end-block md-p"><span class="md-image md-img-loaded" data-src="http://img.555519.xyz/uploads3/20220509/8103e17f1de09c92c9eaa3a1483aa3b8.jpg" alt="如何在Web前端实现CAD图文字全文搜索功能之技术分享"><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/8103e17f1de09c92c9eaa3a1483aa3b8.jpg" alt="如何在Web前端实现CAD图文字全文搜索功能之技术分享"></span></p> <p class="md-end-block md-p"> <h2 class="md-end-block md-heading"><span class="md-plain">全文检索功能</span></h2> <p class="md-end-block md-p"><span class="md-plain">如果后台有成百上千纸图纸，怎么做到全文检索呢？</span></p> <p class="md-end-block md-p"><span class="md-plain">首先想到的肯定是遍历所有的图纸，然后根据要搜索的文字一个个的去查询，这样也能实现，就是图纸比较多时，性能太低了，耗时。</span></p> <p class="md-end-block md-p"><span class="md-plain">这里可以利用开源的全文检索库去实现。</span></p> <p class="md-end-block md-p"><span class="md-plain">开源的<span class="md-meta-i-c  md-link"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.elastic.co/"  rel="nofollow"><span class="md-plain">Elasticsearch</span></a><span class="md-plain"> （以下简称 ES）是目前全文搜索引擎的首选。</span></span></span></p> <p class="md-end-block md-p"><span class="md-plain">它可以快速地储存、搜索和分析海量数据。维基百科、Stack Overflow、Github 都采用它。</span></p> <p class="md-end-block md-p"><span class="md-plain">可以在后台实时查找出所有图形的文字然后利用ES建立索引，然后利用ES去查询，根据查找的结果定位到某图某实体上。</span></p> <p class="md-end-block md-p"><span class="md-plain">但是ES太重量级了，也难部署，用到这种搜索功能上简直就是大材小用。</span></p> <p class="md-end-block md-p"><span class="md-plain">下面推荐一款轻量级的单文件部署的全文搜索开源引擎。</span></p> <p class="md-end-block md-p"><span class="md-plain">Bleve是一款基于Golang实现的全文搜索与索引组件库，具有简单的API、丰富的接口扩展能力、映射可自定义、全面的索引数据类型等特点。</span></p> <ul class="ul-list" data-mark="-"> <li class="md-list-item"> <p class="md-end-block md-p"><span class="md-plain">组件官网：<span class="md-meta-i-c  md-link"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=http%3A%2F%2Fblevesearch.com%2F"  rel="nofollow"><span class="md-plain">http://blevesearch.com/</span></a></span></span></p> </li> <li class="md-list-item"> <p class="md-end-block md-p"><span class="md-plain">组件仓库：<span class="md-meta-i-c  md-link"><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fblevesearch%2Fbleve"  rel="nofollow"><span class="md-plain">https://github.com/blevesearch/bleve</span></a></span></span></p> <p class="md-end-block md-p"> <p class="md-end-block md-p"><span class="md-plain md-expand">有兴趣的朋友可以搭建研究下。</span></p> </li> </ul> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50646.htm">朴素贝叶斯算法详解</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-41200.htm" title="南平宠物免费领养（南平领养宠物网站）">南平宠物免费领养（南平领养宠物网站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-winxray-github.htm" title="「12月23日」最高速度22.9M/S，2024年Xray每天更新免费机场订阅节点链接">「12月23日」最高速度22.9M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-41683.htm" title="宠物粮生产机器设备厂家 宠物粮生产机器设备厂家排名">宠物粮生产机器设备厂家 宠物粮生产机器设备厂家排名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-node-share.htm" title="「1月21日」最高速度21.4M/S，2025年Xray每天更新免费机场订阅节点链接">「1月21日」最高速度21.4M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-latest-winxray-node.htm" title="「2月1日」最高速度22.7M/S，2025年Xray每天更新免费机场订阅节点链接">「2月1日」最高速度22.7M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-winxray-node-github.htm" title="「1月8日」最高速度21M/S，2025年Xray每天更新免费机场订阅节点链接">「1月8日」最高速度21M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-25873.htm" title="动物医生资格证报考条件是什么意思（动物医生资格证报考条件是什么意思啊）">动物医生资格证报考条件是什么意思（动物医生资格证报考条件是什么意思啊）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-9-free-node-subscribe.htm" title="「12月9日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月9日」最高速度18.9M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-47157.htm" title="太原有没有领养猫的地方（太原有没有领养猫的地方啊）">太原有没有领养猫的地方（太原有没有领养猫的地方啊）</a></li>
+                        <li class="py-2"><a href="/news/article-46161.htm" title="JAVA生成指定位数不重复的随机数，随机数含0-9、A-Z">JAVA生成指定位数不重复的随机数，随机数含0-9、A-Z</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

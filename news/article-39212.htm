@@ -8,8 +8,36 @@
     <title>Infrastructure 知识: dnf对module的处理</title>
         <meta name="description" content="从RHEL8/CentOS8开始，dnf取代yum作为rpm 包管理工具。与之而来的还有模块（module）这个东西。 有了它们的加持，让在同一个OS上安装不同版本的软件或者开发语言的工作比之前容易多" />
         <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-39212.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="Infrastructure 知识: dnf对module的处理" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/a7941c1149f50b0dac89dce25b7283f1.webp" />
+        <meta property="og:release_date" content="2025-01-11T10:04:42" />
+    <meta property="og:updated_time" content="2025-01-11T10:04:42" />
+        <meta property="og:description" content="从RHEL8/CentOS8开始，dnf取代yum作为rpm 包管理工具。与之而来的还有模块（module）这个东西。 有了它们的加持，让在同一个OS上安装不同版本的软件或者开发语言的工作比之前容易多" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Infrastructure 知识: dnf对module的处理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <!-- CSS here -->
     <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
@@ -113,15 +141,15 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-22179.htm" title="springboot集成elasticsearch注意事项">springboot集成elasticsearch注意事项</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-9-winxray-node.htm" title="「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接">「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-21261.htm" title="宠物粮食加工厂设备哪的好一点 宠物粮食加工厂设备哪的好一点呢">宠物粮食加工厂设备哪的好一点 宠物粮食加工厂设备哪的好一点呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-11-winxray-github.htm" title="「11月11日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月11日」最高速度21.6M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-node-share-links.htm" title="「11月1日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月1日」最高速度20.5M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-winxray-github.htm" title="「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接">「10月31日」最高速度20.7M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-winxray-github.htm" title="「12月23日」最高速度22.9M/S，2024年Xray每天更新免费机场订阅节点链接">「12月23日」最高速度22.9M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-winxray-github.htm" title="「12月27日」最高速度22.6M/S，2024年Xray每天更新免费机场订阅节点链接">「12月27日」最高速度22.6M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-31393.htm" title="养猫的人,都容易得哪些“猫病”?（养猫的人容易得什么病?）">养猫的人,都容易得哪些“猫病”?（养猫的人容易得什么病?）</a></li>
+                        <li class="py-2"><a href="/news/article-24416.htm" title="做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）">做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）</a></li>
+                        <li class="py-2"><a href="/news/article-28195.htm" title="Android Studio之菜单栏制作">Android Studio之菜单栏制作</a></li>
+                        <li class="py-2"><a href="/news/article-24944.htm" title="typescript环境搭建及编译运行">typescript环境搭建及编译运行</a></li>
+                        <li class="py-2"><a href="/news/article-50134.htm" title="养猫咪不吉利吗（养猫咪不吉利吗怎么办）">养猫咪不吉利吗（养猫咪不吉利吗怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-20343.htm" title="专门卖狗的网站有哪些（专业卖狗的网站有哪些）">专门卖狗的网站有哪些（专业卖狗的网站有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-winxray-github.htm" title="「11月27日」最高速度19.1M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月27日」最高速度19.1M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-winxray-github.htm" title="「12月29日」最高速度19.2M/S，2024年Xray每天更新免费机场订阅节点链接">「12月29日」最高速度19.2M/S，2024年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-29589.htm" title="猫粮狗粮生产加工（猫粮狗粮生产加工工艺）">猫粮狗粮生产加工（猫粮狗粮生产加工工艺）</a></li>
+                        <li class="py-2"><a href="/news/article-38710.htm" title="宠物粮生产利润 宠物粮生产利润怎么样">宠物粮生产利润 宠物粮生产利润怎么样</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-8-winxray-node-github.htm" title="「12月8日」最高速度19.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月8日」最高速度19.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
@@ -134,16 +162,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

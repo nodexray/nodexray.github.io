@@ -1,0 +1,251 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-50646.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>朴素贝叶斯算法详解</title>
+        <meta name="description" content="一、从生活角度来理解朴素贝叶斯算法 朴素贝叶斯算法是统计学味道最浓的一款算法，也是最能体现我们日常生活经验的算法； 与我们读万卷书行万里路形成我们自己的生活经验类似，朴素贝叶斯算法也是基于收集的历史数" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-50646.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="朴素贝叶斯算法详解" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/6b7a2d2899e78e09dd32bbe8a0c464a6.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:27:45" />
+    <meta property="og:updated_time" content="2025-02-03T09:27:45" />
+        <meta property="og:description" content="一、从生活角度来理解朴素贝叶斯算法 朴素贝叶斯算法是统计学味道最浓的一款算法，也是最能体现我们日常生活经验的算法； 与我们读万卷书行万里路形成我们自己的生活经验类似，朴素贝叶斯算法也是基于收集的历史数" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="朴素贝叶斯算法详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/"><span>Node Xray</span></a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                        <li><a href="#">关于</a></li>
+                                            <li><a href="#">联系</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>朴素贝叶斯算法详解</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>一、从生活角度来理解朴素贝叶斯算法</p> <p>朴素贝叶斯算法是统计学味道最浓的一款算法，也是最能体现我们日常生活经验的算法；</p> <p>与我们读万卷书行万里路形成我们自己的生活经验类似，朴素贝叶斯算法也是基于收集的历史数据分析得到相关事情发生的原因，从而形成解决问题的模型；</p> <p>与我们面对未知的未来类似，基于自己的生活经验计算各种可能的情况，最终选择一个最大可能的方向进行努力 ，朴素贝叶斯算法也是基于学习的模型计算给定的输入属于各个分类的概率，并选择概率最大的分类作为结果；</p> <p>从我们出生开始，就在不断的进行学习，通过上学、不同的人生体验、阅读不同类型的书籍来学习；我们把人生的前二十多年全力投入到学习之中，就是要尽最大的可能通过各种方式来丰富自己面对未来不确定性的经验；只不过由于各种客观或者主观条件的限制，我们的内化的经验可能会误差比较大，同时可能也不具有统计性规律；</p> <p>二、从数学的角度来理解朴素贝叶斯算法</p> <p>朴素贝叶斯法实现简单，学习与预测的效率都很高，是一种常用的方法；该算法是基于贝叶斯定理和特征条件独立假设的分类算法；该算法首先通过分析训练数据得到先验概率、似然度，从而得到输入输出的联合概率分布；最后基于此训练模型，利用贝叶斯定理计算得到输入的后验概率最大的分类；</p> <p>联合概率P(X,Y)是通过计算先验概率和条件概率得到的；</p> <p>朴素贝叶斯法通过训练数据集学习得到先验概率</p> <div class="math display">\[P(Y = c_{k}) , k = 1,2,3,...,K<br /> \]</div> <p>条件概率</p> <div class="math display">\[P(X = x | Y = c_{k}) = P(X^{(1)} = x^{(1)},..., X^{(n)} = x^{(n)}| Y = c_{k}), k = 1,2,3,...,K<br /> \]</div> <p>由于算法假设特征条件独立性假设，所以条件概率转化为</p> <div class="math display">\[P(X = x | Y = c_{k}) = P(X^{(1)} = x^{(1)},..., X^{(n)} = x^{(n)}| Y = c_{k})<br />                      = \prod_{j=1}^{n} P(X^{(j)} = x^{(j)}| Y = c_{k})<br /> \]</div> <p>当预测分类的时候，对给定的输入x，通过学习到的模型计算后验概率分布，k|X=x），将后验概率最大的类作为x的类输出。后验概率计算根据贝叶斯定理进行：</p> <div class="math display">\[P(Y = c_{k} | X = x) = \frac{P(X = x | Y = c_{k}) P(Y = c_{k})}{P(X = x)}<br />                      = \frac{P(X = x | Y = c_{k}) P(Y = c_{k})}{\sum_{k} P(X = x|Y = c_{k})P(Y = c_{k})}<br /> \]</div> <p>由于分母P(X = x)是对整个训练样本进行计算的，所以这里类似一个常数，故可以忽略；同时结合上边特征独立性得到的条件概率，可以得到</p> <div class="math display">\[y = \underset{c_{k}}{argmax} P(Y = c_{k}) \prod_{j} P(X^{(j)} = x^{(j)} | Y = c_{k})<br /> \]</div> <p>三、朴素贝叶斯算法分类示例</p> <p>在Scikit-Learn库中，基于贝叶斯这一大类的算法模型的相关类库都在sklearn.naive_bayes包之中；</p> <pre><code>from sklearn.datasets import load_iris from sklearn.naive_bayes import MultinomialNB  X, y = load_iris(return_X_y= True) clf = MultinomialNB().fit(X, y) r = clf.predict(X) print(r) s = clf.score(X, y) print(s)    # [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 #  0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 2 1 2 1 #  1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 #  2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 2 1 2 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2 #  2 2] # 0.9533333333333334</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50135.htm">什么命格的人不能养猫（什么命格的人不能养龟）</a></p>
+                                        <p>下一个：<a href="/news/article-50649.htm">如何在Web前端实现CAD图文字全文搜索功能之技术分享</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-48109.htm" title="python中repr()函数用法详解">python中repr()函数用法详解</a></li>
+                        <li class="py-2"><a href="/news/article-28659.htm" title="动物医院学什么科目好（动物医院是干嘛的）">动物医院学什么科目好（动物医院是干嘛的）</a></li>
+                        <li class="py-2"><a href="/news/article-49128.htm" title="数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引">数据库基础知识详解四：存储过程、视图、游标、SQL语句优化以及索引</a></li>
+                        <li class="py-2"><a href="/news/article-45650.htm" title="中国宠物粮市场分析（宠物粮市场前景）">中国宠物粮市场分析（宠物粮市场前景）</a></li>
+                        <li class="py-2"><a href="/news/article-18981.htm" title="宠物粮店怎么开 宠物粮店怎么开店">宠物粮店怎么开 宠物粮店怎么开店</a></li>
+                        <li class="py-2"><a href="/news/article-23570.htm" title="宠物粮生产利润（宠物粮生产设备多少钱）">宠物粮生产利润（宠物粮生产设备多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-19431.htm" title="动物疫苗品牌排行前十 动物疫苗品牌排行前十名">动物疫苗品牌排行前十 动物疫苗品牌排行前十名</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-node-share-links.htm" title="「12月18日」最高速度21.4M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月18日」最高速度21.4M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-subscribe-node.htm" title="「12月16日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「12月16日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月23日」最高速度20.8M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
