@@ -1,0 +1,252 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-60612.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>ASP.NET Core高性能服务器HTTP.SYS</title>
+        <meta name="description" content="如果我们只需要将ASP.NET CORE应用部署到Windows环境下，并且希望获得更好的性能，那么我们选择的服务器类型应该是HTTP.SYS。Windows环境下任何针对HTTP的网络监听器/服务器" />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-60612.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="ASP.NET Core高性能服务器HTTP.SYS" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/545c461f37cb56e6fde7893e15080d07.webp" />
+        <meta property="og:release_date" content="2025-02-21T09:22:00" />
+    <meta property="og:updated_time" content="2025-02-21T09:22:00" />
+        <meta property="og:description" content="如果我们只需要将ASP.NET CORE应用部署到Windows环境下，并且希望获得更好的性能，那么我们选择的服务器类型应该是HTTP.SYS。Windows环境下任何针对HTTP的网络监听器/服务器" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET Core高性能服务器HTTP.SYS">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Node Xray</span>
+                                                                    </a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>ASP.NET Core高性能服务器HTTP.SYS</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>如果我们只需要将ASP.NET CORE应用部署到Windows环境下，并且希望获得更好的性能，那么我们选择的服务器类型应该是HTTP.SYS。Windows环境下任何针对HTTP的网络监听器/服务器在性能上都无法与HTTP.SYS比肩。</p> <blockquote> <p>一、HTTP.SYS简介<br /> 二、MessagePump &amp; UseHttpSys<br /> 三、HttpSysOptions</p> </blockquote> </h1> <p>HTTP.SYS本质上就是一个HTTP/HTTPS监听器，它是Windows网络子系统的一部分，是一个在内核模式下运行的网络驱动。HTTP.SYS对应的驱动文件为“%WinDir\System32\drivers\http.sys”，不要小看这个只有1M多的文件，Windows系统针对HTTP的监听、接收、转发和响应大都依赖它。如图1所示，HTTP.SYS建立在Windows网络子系统针对TCPIP协议栈的驱动（TCPIP.SYS）之上，并为用户态运行的IIS提供基础的HTTP通信服务。前面我们使用的HttpListener也建立在HTTP.SYS上面。</p> <p><a href="https://img2022.cnblogs.com/blog/19327/202204/19327-20220406101327936-1810276076.png" rel="nofollow" class="fancybox" data-fancybox-group="button"><img fetchpriority="high" decoding="async" width="402" height="186" title="image" style="border: 0 currentColor; border-image: none; display: inline; background-image: none" alt="image" src="http://img.555519.xyz/uploads3/20220510/da4da1b7e5a568b58538b64816655731.jpg"></a><br />图1 HTTP.SYS</p> <p>由于HTTP.SYS是在操作系统内核态运行，所以它提供的性能优势是其他在用户态运行的同类产品无法比拟的。由于它自身提供响应缓存，所以在缓存命中的情况下根本不需要与用户态进程进行交互。它还提供了请求队列（Request Queue），如果请求的目标进程（比如IIS的工作进程）处于活动状态，它可以直接将请求分它给它，否则请求会暂存于队列中等待目标进程来提取，这样的工作模式既减少了内核态与用户态之间的上下文切换，也确保请求不会丢失。HTTP.SYS还提供连接管理，流量限制，诊断日志等功能，并提供针对Kerberos的Windows认证。</p> <p>由于HTTP.SYS是一个底层共享的网络驱动，它有效地解决了端口共享的问题。用户态进程会使用地址前缀（含端口号）“接入”HTTP.SYS，后者利用提供的地址前缀来转发请求，多个用户态进程只要保证提供的地址前缀不同就可以了，所以它们可以使用相同的端口号。端口共享使每个用户进程都可以使用标准的80/443端口。</p> </h1> <p>基于HTTP.SYS的服务器体现为如下这个MessagePump类型，它内部使用一个HttpSysListener对象采用注册的监听地址接入HTTP.SYS。MessagePump提供针对HTTP 1.X、HTTP 2以及HTTPS的支持。对于Windows Server 2022和Windows 11，还支持HTTP 3。IWebHostBuilder接口如下这两个UseHttpSys扩展方法用来完成针对MessagePump的注册。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">internal</span><span style="color: rgba(0, 0, 255, 1)">class</span> MessagePump : IServer, IDisposable {<span style="color: rgba(0, 0, 255, 1)">internal</span> HttpSysListener Listener {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> IFeatureCollection Features {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> MessagePump(IOptions&lt;HttpSysOptions&gt; options, ILoggerFactory loggerFactory,IAuthenticationSchemeProvider authentication);<span style="color: rgba(0, 0, 255, 1)">public</span> Task StartAsync&lt;TContext&gt;(IHttpApplication&lt;TContext&gt; application,CancellationToken cancellationToken);<span style="color: rgba(0, 0, 255, 1)">public</span> Task StopAsync(CancellationToken cancellationToken);<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">void</span> Dispose(); }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span><span style="color: rgba(0, 0, 255, 1)">class</span> WebHostBuilderHttpSysExtensions {     [SupportedOSPlatform("<span style="color: rgba(139, 0, 0, 1)">windows</span>")]<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IWebHostBuilder UseHttpSys(<span style="color: rgba(0, 0, 255, 1)">this</span> IWebHostBuilder hostBuilder);      [SupportedOSPlatform("<span style="color: rgba(139, 0, 0, 1)">windows</span>")]<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">static</span> IWebHostBuilder UseHttpSys(<span style="color: rgba(0, 0, 255, 1)">this</span> IWebHostBuilder hostBuilder,Action&lt;HttpSysOptions&gt; options); }</pre> </div> <p>如下所示的是在Minimal API下调用UseHttpSys注册MessagePump 服务器的例子。</p> <div class="cnblogs_code"> <pre>var builder = WebApplication.CreateBuilder(args); builder.WebHost.UseHttpSys(); var app = builder.Build(); app.MapGet("<span style="color: rgba(139, 0, 0, 1)">/</span>", () =&gt; "<span style="color: rgba(139, 0, 0, 1)">Hello World</span>"); app.Run();</pre> </div> </h1> <p>在调用UseHttpSys扩展方法注册基于HTTP.SYS的MessagePump服务器的时候，我们可以利用提供的Action&lt;HttpSysOptions&gt;委托对相关的配置选项进行设置。HttpSysOptions的UrlPrefixes属性返回注册的监听地址前缀，但是最终是否这种直接注册到服务器上的监听器地址，取决于IServerAddressesFeature特性的PreferHostingUrls属性，这一点与KestrelServer是一致的。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">class</span> HttpSysOptions {<span style="color: rgba(0, 0, 255, 1)">public</span> UrlPrefixCollection 	    UrlPrefixes {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> RequestQueueMode 		RequestQueueMode {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">string</span>? 			RequestQueueName {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">long</span> 			RequestQueueLimit {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> AuthenticationManager 	Authentication {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> ClientCertificateMethod 	ClientCertificateMethod {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">long</span>? 			MaxConnections {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">long</span>? 			MaxRequestBodySize {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">int</span> 			    MaxAccepts {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> Http503VerbosityLevel 	Http503Verbosity {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> TimeoutManager 		Timeouts {<span style="color: rgba(0, 0, 255, 1)">get</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			AllowSynchronousIO {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			EnableResponseCaching {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			ThrowWriteExceptions {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			UnsafePreferInlineScheduling {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			UseLatin1RequestHeaders {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; } }</pre> </div> <p>HTTP.SYS利用请求队列来存放待处理的请求，我们可以利用RequestQueueMode属性决定创建一个新的队列或者使用现有的队列。该属性类型为如下这个RequestQueueMode枚举，枚举项Create表示创建新的队列，Attach表示使用现有的以RequestQueueName属性命名的对象，如果该队列不存在会抛出异常。CreateOrAttach提供了一个折中方案，如果指定名称的队列不存在就创建一个以此命名的新队列。该属性的默认值为Create，RequestQueueName属性默认值为Null（代表匿名队列），RequestQueueLimit属性表示队列的容量，默认值为1000。HttpSysOptions承载的很多配置选项只会应用到新创建的请求队列上。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">enum</span> RequestQueueMode {     Create,     Attach,     CreateOrAttach }</pre> </div> <p>HttpSysOptions的Authentication属性返回一个AuthenticationManager对象，我们利用它完成针对认证的设置。我们可以利用Schemes属性设置认证方案，该属性默认为None。如果不允许匿名访问，可以将AllowAnonymous属性设为False。如果将AutomaticAuthentication属性返回True（默认值），认证用户将自动赋值给HttpContext上下文的User属性。AuthenticationDisplayName属性用来为认证方案提供一个显示名称。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">sealed</span><span style="color: rgba(0, 0, 255, 1)">class</span> AuthenticationManager {<span style="color: rgba(0, 0, 255, 1)">public</span> AuthenticationSchemes 	Schemes {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			AllowAnonymous {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">bool</span> 			AutomaticAuthentication {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">string</span>? 			AuthenticationDisplayName {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; } }  [Flags]<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">enum</span> AuthenticationSchemes {     None 				= 0x0,     Digest 				= 0x1,     Negotiate 				= 0x2,     Ntlm 				= 0x4,     Basic 				= 0x8,     Anonymous 				= 0x8000,     IntegratedWindowsAuthentication 	= 0x6 }</pre> </div> <p>HTTPS站点可以要求提供证书来对其实施认证，HttpSysOptions的ClientCertificateMethod属性用于设置请求客户端证书的方式，该属性返回如下这个ClientCertificateMethod枚举。在.NET 5之前，客户端证书采用Renegotation的方式来提取的，Renegotiation是在已经建立的SSL/TLS连接上再次发起的一轮“协商握手”，这种方式对应AllowRenegotation枚举项。由于可能带来一些性能和死锁的问题，这种方式在.NET 5之后已经默认禁止了，目前默认的方式是创建SSL/TLS连接的初始阶段就提取该证书，这种方式对应AllowRenegotation枚举项，这也是ClientCertificateMethod属性的默认值。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">enum</span> ClientCertificateMethod {     NoCertificate,     AllowCertificate,     AllowRenegotation }</pre> </div> <p>HttpSysOptions的MaxConnections和MaxRequestBodySize属性分别表示最大连接数和请求主体内容的最大字节数，如果它们被设置为Null，意味着忽略对应的限制。这两个属性的默认值分别Null和30,000,000。MaxAccepts属性表示接受的最大并发请求，默认值为当前处理器数量的5倍。如果并发请求数量超过限流设置，后续请求会拒绝处理，此时服务器会直接回复一个状态码为503的响应，与此同时还会根据Http503Verbosity属性设置的等级作相应的处理。如果该属性值为Basic（默认值），当前TCP连接会重置，Full和Limitmed选项会影响响应的状态描述，前者返回详细的Reason Phrase，后者采用标准的“Service Unavailable”。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">enum</span> Http503VerbosityLevel {     Basic,     Limited,     Full }</pre> </div> <p>HttpSysOptions的Timeouts属性返回如下这个TimeoutManager对象，我们利用它完成各种超时设置，包括请求主体内容抵达时间（EntityBody）、读取请求主体内容时间（DrainEntityBody），请求在队列中存放的时间（RequestQueue）、连接闲置时间（IdleConnection）和解析请求报头时间（HeaderWait），这些超时时间默认都是两分钟。MinSendBytesPerSecond属性表示响应数据的最小发送率，默认为每秒150字节。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">sealed</span><span style="color: rgba(0, 0, 255, 1)">class</span> TimeoutManager {<span style="color: rgba(0, 0, 255, 1)">public</span> TimeSpan 	EntityBody {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> TimeSpan 	DrainEntityBody {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> TimeSpan 	RequestQueue {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> TimeSpan 	IdleConnection {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span> TimeSpan 	HeaderWait {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; }<span style="color: rgba(0, 0, 255, 1)">public</span><span style="color: rgba(0, 0, 255, 1)">long</span> 	MinSendBytesPerSecond {<span style="color: rgba(0, 0, 255, 1)">get</span>;<span style="color: rgba(0, 0, 255, 1)">set</span>; } }</pre> </div> <p>HttpSysOptions还定义了其他一系列属性。AllowSynchronousIO属性（默认为False）表示是否运行以同步IO的方式完成针对请求和响应主体内容的读写。EnableResponseCaching属性（默认为True）表示允许响应缓存。ThrowWriteExceptions属性（默认为False）表示因断开连接导致写入响应主体内容失败是否需要抛出异常。如果将UnsafePreferInlineScheduling（默认为False）设置为True，意味着会直接在读取请求的IO线程中执行后续的应用代码，否则我们编写的应用代码会分发到线程池中进行处理。这样可以通过避免线程切换减少单个请求的处理耗时，但是会对整体的吞吐量带来负面影响。UseLatin1RequestHeaders属性（默认为False）表示是否采用Latin1字符集（ISO-8859-1）对请求报头进行编码。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60050.htm">狗粮加盟一般多少钱合适（加盟狗粮公司代理点）</a></p>
+                                        <p>下一个：<a href="/news/article-60613.htm">动物疫苗过敏应该用什么药物急救呢图片（动物疫苗过敏应该用什么药物急救呢图片大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29590.htm" title="宠物粮市场分析图（宠物粮市场份额）">宠物粮市场分析图（宠物粮市场份额）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-8-free-node-subscribe-links.htm" title="「2月8日」最高速度23M/S，2025年Xray每天更新免费机场订阅节点链接">「2月8日」最高速度23M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-winxray-github.htm" title="「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接">「11月13日」最高速度21.3M/S，2024年Xray Node每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-winxray-node.htm" title="「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接">「1月9日」最高速度18.1M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-53311.htm" title="宠物粮品牌排行前十名有哪些呢图片（宠物粮品牌排行前十名有哪些呢图片视频）">宠物粮品牌排行前十名有哪些呢图片（宠物粮品牌排行前十名有哪些呢图片视频）</a></li>
+                        <li class="py-2"><a href="/news/article-39700.htm" title="江苏省动物防疫条例（江苏省动物防疫条例最新）">江苏省动物防疫条例（江苏省动物防疫条例最新）</a></li>
+                        <li class="py-2"><a href="/news/article-31024.htm" title="宠物领养合同违约金30000元合法吗知乎 宠物领养合同违约金30000元合法吗知乎">宠物领养合同违约金30000元合法吗知乎 宠物领养合同违约金30000元合法吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-28656.htm" title="Visual Studio App Center 中的 Bug 跟踪服务">Visual Studio App Center 中的 Bug 跟踪服务</a></li>
+                        <li class="py-2"><a href="/news/article-57187.htm" title="正确计算linux系统内存使用率">正确计算linux系统内存使用率</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-node-subscribe-links.htm" title="「2月21日」最高速度22.7M/S，2025年Xray每天更新免费机场订阅节点链接">「2月21日」最高速度22.7M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">61</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
