@@ -1,0 +1,249 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://nodexray.github.io/news/article-82769.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Java的引用和内存</title>
+        <meta name="description" content="例子 public class Square {       long width;       public Square(long l) {            width = l;      " />
+        <link rel="icon" href="/assets/website/img/nodexray/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Node Xray机场节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://nodexray.github.io/news/article-82769.htm" />
+    <meta property="og:site_name" content="Node Xray机场节点官网" />
+    <meta property="og:title" content="Java的引用和内存" />
+    <meta property="og:image" content="https://nodexray.github.io/uploads/20240820-2/06c6255ff691ed255ef4657b51ca3d8b.webp" />
+        <meta property="og:release_date" content="2025-03-27T08:16:13" />
+    <meta property="og:updated_time" content="2025-03-27T08:16:13" />
+        <meta property="og:description" content="例子 public class Square {       long width;       public Square(long l) {            width = l;      " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java的引用和内存">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- CSS here -->
+    <link rel="stylesheet" href="/assets/website/css/nodexray/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slicknav.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/slick.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/nice-select.css">
+    <link rel="stylesheet" href="/assets/website/css/nodexray/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F3L90EJJ0W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F3L90EJJ0W');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <header>
+        <div class="header-area header-transparent">
+            <div class="main-header header-sticky">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <!-- Logo -->
+                        <div class="col-md-3">
+                            <div class="logo">
+                                <a href="/">
+                                                                        <span>Node Xray</span>
+                                                                    </a>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="menu-wrapper d-flex align-items-center justify-content-end">
+                                <!-- Main-menu -->
+                                <div class="main-menu d-none d-lg-block">
+                                    <nav>
+                                        <ul id="navigation">
+                                                                                        <li><a href="/">首页</a></li>
+                                                                                        <li><a href="/free-nodes/">免费节点</a></li>
+                                                                                        <li><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                                        <li><a href="/client.htm">客户端</a></li>
+                                                                                        <li><a href="/news/">新闻资讯</a></li>
+                                                                                    </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Mobile Menu -->
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <!-- Hero Area Start-->
+        <div class="slider-area slider-bg2 position-relative">
+            <div class="single-slider d-flex align-items-center slider-height2">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-7 col-md-10">
+                            <div class="hero__caption hero__caption2 pt-50">
+                                <h1>Java的引用和内存</h1>
+                                <p>
+                                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-shape">
+                <img src="assets/img/gallery/hero-shape.png" alt="">
+            </div>
+        </div>
+        <!-- Hero Area End -->
+        <!-- About -->
+        <div class="support-company-area top-padding2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3> <a id="_1" rel="nofollow"></a>例子</h3> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Square</span> <span class="token punctuation">{<!-- --></span>       <span class="token keyword">long</span> width<span class="token punctuation">;</span>       <span class="token keyword">public</span> <span class="token function">Square</span><span class="token punctuation">(</span><span class="token keyword">long</span> l<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>            width <span class="token operator">=</span> l<span class="token punctuation">;</span>       <span class="token punctuation">}</span>       <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String arg<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     	<span class="token comment">//声明了3个Square类型的变量a,b,c</span>     	<span class="token comment">//在stack中分配3个内存，名字为a,b,c</span>         Square a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">;</span>         <span class="token comment">//在heap中分配了一块新内存，里边包含自己的成员变量width值为42L，然后stack中的a指向这块内存</span>         a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Square</span><span class="token punctuation">(</span><span class="token number">42</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//在heap中分配了一块新内存，里边包含自己的成员变量width值为42L，然后stack中的b指向这块内存</span>         b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Square</span><span class="token punctuation">(</span><span class="token number">42</span>L<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//stack中的c也指向b所指向的内存 </span>         c <span class="token operator">=</span> b<span class="token punctuation">;</span>         <span class="token comment">//在stack中分配了一块内存，值为42   </span>         <span class="token keyword">long</span> s <span class="token operator">=</span> <span class="token number">42</span>L<span class="token punctuation">;</span>       <span class="token punctuation">}</span>  <span class="token punctuation">}</span> </code></pre> <p>以上代码在内存中的情况：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/72848dd3cea76511bfbd286d52f3a6b8.jpg" alt="Java的引用和内存"></p> <h3> <a id="_25" rel="nofollow"></a>如何来对各种不同的变量作比较？</h3> <p>java的数据类型分为：</p> <ol> <li>基本数据类型</li> <li>引用数据类型<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230205/472d4edcb0bb689556a73ccc6b6b0398.jpg" alt="Java的引用和内存"><br /> 上例中的变量a,b,c属于引用数据类型，s属于基本数据类型</li> </ol> <p>==强调栈中的比较，可以理解为地址比较<br /> ==可以用于<strong>基本数据类型</strong>相互比较，此时比较二者的<strong>值</strong>是否相等<br /> ==也可以用于<strong>引用数据类型</strong>的相互比较，此时比较二者的<strong>地址</strong>是否相等<br /> ==不能用于基本数据类型和引用数据类型比较，不同的基本数据类型之间也不能比较，例如string不能与char[]比较</p> <p>equals强调对象的内容比较<br /> equals不能用于基本数据类型比较，因为这是一个方法，不是运算符，继承自object<br /> equals用于进行对象的比较，比较二者的引用地址是否相同</p> <p>特殊情况：<br /> 1)数值型基本类型和数值型类会存在自动装箱和自动拆箱.<br /> 2)字符串会以常量形式存在, 如果多个字符串变量值相同, 则他们指向同一个地址.<br /> 3)数值类型会存在类型自动转换.</p> <h3> <a id="_48" rel="nofollow"></a>根据给出的例子判断</h3> <ul> <li> <p>由图可以看出a和b指向的不是同一个引用，所以a!=b</p> </li> <li> <p>一个Square类型不能与一个long型比较，编译就错误，所以不存在s==a这种比较</p> </li> <li> <p>由图可以看出b和c指向的是同一个引用，所以b==c</p> </li> <li> <p>程序会把s封装成一个Long类型，由于Square没有重写Object的equals方法，<br /> 所以调用的是Object类的equals方法，源码如下<br /> public boolean equals(Object obj) {<!-- --><br /> return (this == obj);<br /> }<br /> 其实就是判断两个引用是否相等，所以a.equals(s) == false</p> <p>在java中进行比较，我们需要根据比较的类型来选择合适的比较方式：</p> </li> </ul> <ol> <li>对象域，使用equals方法 。</li> <li>类型安全的枚举，使用equals或== 。</li> <li>可能为null的对象域 : 使用 == 和 equals 。</li> <li>数组域 : 使用 Arrays.equals 。</li> <li>除float和double外的原始数据类型 : 使用 == 。</li> <li>float类型: 使用Float.foatToIntBits转换成int类型，然后使用==。</li> <li>double类型: 使用Double.doubleToLongBit转换成long类型，然后使用==。</li> </ol> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82042.htm">动物医院工作怎么样（动物医院工资怎么样）</a></p>
+                                        <p>下一个：<a href="/news/article-82770.htm">宠物粮食品牌大全图片及名字 宠物粮食品牌大全图片及名字及价格</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83501.htm" title="我所在的城市有一家宠物医院的英语怎么写 我所在的城市有一家宠物医院的英语怎么写">我所在的城市有一家宠物医院的英语怎么写 我所在的城市有一家宠物医院的英语怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-49617.htm" title="动物注射疫苗简报怎么写范文（动物注射疫苗注意事项）">动物注射疫苗简报怎么写范文（动物注射疫苗注意事项）</a></li>
+                        <li class="py-2"><a href="/news/article-82770.htm" title="宠物粮食品牌大全图片及名字 宠物粮食品牌大全图片及名字及价格">宠物粮食品牌大全图片及名字 宠物粮食品牌大全图片及名字及价格</a></li>
+                        <li class="py-2"><a href="/news/article-58327.htm" title="上海宠物基地（上海宠物基地一本地可自提一猫狗大型超市一质保纯种保）">上海宠物基地（上海宠物基地一本地可自提一猫狗大型超市一质保纯种保）</a></li>
+                        <li class="py-2"><a href="/news/article-66070.htm" title="上海宠物医院哪家好又便宜（上海 好的宠物医院）">上海宠物医院哪家好又便宜（上海 好的宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-82041.htm" title="猫最忌讳的三个属相有科学依据吗（猫忌讳什么）">猫最忌讳的三个属相有科学依据吗（猫忌讳什么）</a></li>
+                        <li class="py-2"><a href="/news/article-72504.htm" title="动物医院电话号码多少啊 动物医院电话号码多少啊">动物医院电话号码多少啊 动物医院电话号码多少啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-node-share-links.htm" title="「1月4日」最高速度21.6M/S，2025年Xray每天更新免费机场订阅节点链接">「1月4日」最高速度21.6M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-79281.htm" title="动物防疫站打疫苗贵吗（动物防疫站打疫苗贵吗现在）">动物防疫站打疫苗贵吗（动物防疫站打疫苗贵吗现在）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-node-subscribe.htm" title="「1月10日」最高速度20.9M/S，2025年Xray每天更新免费机场订阅节点链接">「1月10日」最高速度20.9M/S，2025年Xray每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About Area End-->
+    </main>
+        <footer>
+        <div class="footer-wrapper">
+            <!-- footer-bottom area -->
+            <div class="footer-bottom-area">
+                <div class="container">
+                    <div class="footer-border">
+                        <div class="row">
+                            <div class="col-xl-12 ">
+                                <div class="footer-copy-right text-center">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                                    <p>
+                                    Node Xray机场节点官网 版权所有
+                                    <br />
+                                    Powered by WordPress
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll Up -->
+    <div id="back-top">
+        <a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
+    </div>
+    <!-- JS here -->
+    <!-- Jquery, Popper, Bootstrap -->
+    <script src="/assets/website/js/frontend/nodexray/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/vendor/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/popper.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/bootstrap.min.js"></script>
+    <!-- Jquery Slick , Owl-Carousel Plugins -->
+    <script src="/assets/website/js/frontend/nodexray/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/slick.min.js"></script>
+    <!-- wow, Mobile Menu -->
+    <script src="/assets/website/js/frontend/nodexray/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.magnific-popup.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.slicknav.min.js"></script>
+    <!-- counter , waypoint ,Nice-select -->
+    <script src="/assets/website/js/frontend/nodexray/jquery.counterup.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/waypoints.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.nice-select.min.js"></script>
+    <!-- contact js -->
+    <script src="/assets/website/js/frontend/nodexray/contact.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.form.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.validate.min.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/mail-script.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/jquery.ajaxchimp.min.js"></script>
+    <!-- Plugins, main-Jquery -->
+    <script src="/assets/website/js/frontend/nodexray/plugins.js"></script>
+    <script src="/assets/website/js/frontend/nodexray/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
